@@ -144,6 +144,16 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item" role="presentation"><a class="nav-link active" id="courses-tab" data-bs-toggle="tab" data-bs-target="#courses" role="tab" aria-controls="courses" aria-selected="true" href="#courses">Courses</a></li>
+  <li class="nav-item" role="presentation"><a class="nav-link" id="evaluations-tab" data-bs-toggle="tab" data-bs-target="#evaluations" role="tab" aria-controls="evaluations" aria-selected="false" href="#evaluations">Teaching Evaluations</a></li>
+  <li class="nav-item" role="presentation"><a class="nav-link" id="syllabus-tab" data-bs-toggle="tab" data-bs-target="#syllabus" role="tab" aria-controls="syllabus" aria-selected="false" href="#syllabus">Sample Syllabus</a></li>
+</ul>
+<div class="tab-content">
+
+<!-- ===== Courses (unchanged from the previous page) ===== -->
+<div id="courses" class="tab-pane active" role="tabpanel" aria-labelledby="courses-tab">
 <section id="instructor-with-full-responsibility" class="level2">
 <h2 class="anchored" data-anchor-id="instructor-with-full-responsibility">Instructor with Full Responsibility</h2>
 <section id="applied-business-economics-beco-3310" class="level3">
@@ -158,10 +168,42 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="applied-business-economics-beco-3310-1">Applied Business Economics (BECO 3310)</h3>
 <p><strong>Rawls College of Business, Texas Tech University</strong> | 2023–2025</p>
 <hr>
-
-
 </section>
 </section>
+</div>
+
+<!-- ===== Teaching Evaluations ===== -->
+<div id="evaluations" class="tab-pane" role="tabpanel" aria-labelledby="evaluations-tab">
+<p>A summary of my student evaluation scores and representative comments, followed by the complete evaluation reports for both semesters I taught as instructor of record (Fall 2025 and Spring 2026).</p>
+<p><a class="btn btn-outline-primary btn-sm" href="files/crego_teaching_effectiveness.pdf" target="_blank">Download the teaching evaluations (PDF)</a></p>
+<iframe src="files/crego_teaching_effectiveness.pdf" title="Teaching evaluations" width="100%" height="850" style="border: 1px solid #ddd;"></iframe>
+</div>
+
+<!-- ===== Sample Syllabus ===== -->
+<div id="syllabus" class="tab-pane" role="tabpanel" aria-labelledby="syllabus-tab">
+<p>Syllabus for Applied Business Economics (BECO 3310), Rawls College of Business, Texas Tech University.</p>
+<p><a class="btn btn-outline-primary btn-sm" href="files/BECO3310_syllabus.pdf" target="_blank">Download the syllabus (PDF)</a></p>
+<iframe src="files/BECO3310_syllabus.pdf" title="Sample syllabus" width="100%" height="850" style="border: 1px solid #ddd;"></iframe>
+</div>
+
+</div>
+</div>
+
+<!-- Open a tab directly from the URL, e.g. teaching.html#evaluations -->
+<script>
+  window.addEventListener("load", function () {
+    var hash = window.location.hash;
+    if (hash && window.bootstrap) {
+      var tab = document.querySelector('.panel-tabset a[data-bs-target="' + hash + '"]');
+      if (tab) { setTimeout(function () { bootstrap.Tab.getOrCreateInstance(tab).show(); }, 0); }
+    }
+    document.querySelectorAll('.panel-tabset a[data-bs-toggle="tab"]').forEach(function (a) {
+      a.addEventListener("shown.bs.tab", function (e) {
+        history.replaceState(null, "", e.target.getAttribute("data-bs-target"));
+      });
+    });
+  });
+</script>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
